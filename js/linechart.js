@@ -8,9 +8,9 @@ function linechart() {
   // https://bl.ocks.org/mbostock/3019563
   let margin = {
       top: 60,
-      left: 50,
+      left: 70,
       right: 30,
-      bottom: 35
+      bottom: 115
     },
     width = 500 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom,
