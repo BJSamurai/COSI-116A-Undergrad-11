@@ -55,8 +55,7 @@
     
   </div>
   
-  <button onclick="update(1)">Dataset 1</button>
-  <button onclick="update(2)">Dataset 2</button>
+
 
   <!-- Visualization goes here -->
   <div class="vis-holder">
@@ -65,6 +64,9 @@
     <div class="scatterplot-holder" id="scatterplot"></div>
   </div>
     <div class="table-holder" id="table">
+      <button class="button1" onclick="updateBarData(data1,'#993300')">Population by States</button>
+      <button class="button2" onclick="updateBarData(data2,'red')">Patient In Hospital by States</button>
+      <div id="my_dataviz"></div>
     </div>
     
   
@@ -124,7 +126,9 @@
   <script src="js/scatterplot.js"></script>
   <script src="js/linechart.js"></script>
   <script src="js/table.js"></script>
+  <script src="js/bar.js"></script>
   <script src="js/visualization.js"></script>
+  
 </body>
 
 </html>

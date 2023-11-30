@@ -37,6 +37,7 @@ function scatterplot() {
     svg = svg.append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+
     //Define scales
     xScale
       .domain([
@@ -83,10 +84,41 @@ function scatterplot() {
         .attr("cx", X)
         .attr("cy", Y)
         .attr("r", 5);
+        
     
     selectableElements = points;
     
     svg.call(brush);
+
+    let tooltip = d3.select(selector)
+    .append("div")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "1px")
+    .style("border-radius", "5px")
+    .style("padding", "10px")
+
+    let mouseover = function(d) {
+      tooltip
+        .style("opacity", 1)
+    }
+  
+    let mousemove = function(d) {
+      tooltip
+        .html("The exact value of<br>the Ground Living area is: " + d.GrLivArea)
+        .style("left", (d3.mouse(this)[0]+90) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+        .style("top", (d3.mouse(this)[1]) + "px")
+    }
+  
+    // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
+    let mouseleave = function(d) {
+      tooltip
+        .transition()
+        .duration(200)
+        .style("opacity", 0)
+    }
 
     // Highlight points when brushed
     function brush(g) {
@@ -197,6 +229,8 @@ function scatterplot() {
     dispatcher = _;
     return chart;
   };
+
+  
 
   // Given selected data from another visualization 
   // select the relevant elements here (linking)

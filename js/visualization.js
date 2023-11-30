@@ -25,14 +25,16 @@
     // Create a scatterplot given x and y attributes, labels, offsets; 
     // a dispatcher (d3-dispatch) for selection events; 
     // a div id selector to put our svg in; and the data to use.
-    let spUnemployMurder = scatterplot()
-      .x(d => d.PatientInHospital)
-      .xLabel("Patients In Hospital")
-      .y(d => d.Population)
-      .yLabel("Population")
-      .yLabelOffset(150)
-      .selectionDispatcher(d3.dispatch(dispatchString))
-      ("#scatterplot", data);
+    // let spUnemployMurder = scatterplot()
+    //   .x(d => d.PatientInHospital)
+    //   .xLabel("Patients In Hospital")
+    //   .y(d => d.Population)
+    //   .yLabel("Population")
+    //   .yLabelOffset(150)
+    //   .selectionDispatcher(d3.dispatch(dispatchString))
+    //   ("#scatterplot", data);
+
+    updateScatterPlot(1);
 
     // Create a table given the following: 
     // a dispatcher (d3-dispatch) for selection events; 
@@ -71,25 +73,46 @@
       });
     });
 
-    function update(a){
-      if(a == 1){
-        d3.select("#scatterplot").remove();
-        let spUnemployMurder = scatterplot().x(d => d.PatientInHospital)
-        .xLabel("Patients In Hospital")
-        .y(d => d.Population)
-        .yLabel("Population")
-        .yLabelOffset(150);
+    function updateScatterPlot(a) {
+      // Remove the old scatterplot
+      d3.select("#scatterplot").selectAll("*").remove();
+    
+      // Define the x and y accessors based on the input
+      let xAccessor, xLabel;
+      if (a === 1) {
+        xAccessor = d => d.PatientInHospital;
+        xLabel = "Patients In Hospital";
+      } else if (a === 2) {
+        xAccessor = d => d.States;
+        xLabel = "States";
       }
-      else if(a == 2){
-        d3.select("#scatterplot").remove();
-        let spUnemployMurder = scatterplot().x(d => d.States)
-        .xLabel("States")
-        .y(d => d.Population)
-        .yLabel("Population")
-        .yLabelOffset(150);
-      }
-      
+      let yAccessor = d => d.Population;
+      let yLabel = "Population";
+    
+      // Create the new scatterplot
+      spUnemployMurder = scatterplot()
+        .x(xAccessor)
+        .xLabel(xLabel)
+        .y(yAccessor)
+        .yLabel(yLabel)
+        .yLabelOffset(150)
+        .selectionDispatcher(d3.dispatch(dispatchString))
+        ("#scatterplot", data);
     }
+
+    // Select all buttons with the common class
+d3.selectAll(".dataset-button").on("click", function() {
+  // Get the ID of the clicked button
+  let buttonId = d3.select(this).attr("id");
+
+  // Determine the dataset to load based on the button ID
+  let dataset;
+  if (buttonId === "button1") {
+    updateScatterPlot(1);
+  } else if (buttonId === "button2") {
+    updateScatterPlot(2);
+  } 
+});
 
     
     // When the table is updated via brushing, tell the line chart and scatterplot
