@@ -61,37 +61,55 @@ var y = d3.scaleLinear()
 svg.append("g")
   .call(d3.axisLeft(y));
 
+  var tooltip = d3.select("#my_dataviz")
+  .append("div")
+  .style("opacity", 0)
+  .attr("class", "tooltip")
+  .style("background-color", "white")
+  .style("border", "solid")
+  .style("border-width", "1px")
+  .style("border-radius", "5px")
+  .style("padding", "10px")
 
-function updateBar(data,color) {
-    updateBarData(data);
-    changeColor(color);
-}
+  var mouseover = function(d) {
+    var subgroupName = d3.select(this.parentNode).datum().key;
+    var subgroupValue = d.data[subgroupName];
+    tooltip
+        .html("subgroup: " + subgroupName + "<br>" + "Value: " + subgroupValue)
+        .style("opacity", 1)
+  }
+  var mousemove = function(d) {
+    tooltip
+      .style("left", (d3.mouse(this)[0]+90) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+      .style("top", (d3.mouse(this)[1]) + "px")
+  }
+  var mouseleave = function(d) {
+    tooltip
+      .style("opacity", 0)
+  }
+
 
 function updateBarData(data,color) {
   var u = svg.selectAll("rect")
     .data(data)
 
-  u
+    u
     .enter()
     .append("rect")
     .merge(u)
     .transition()
     .duration(1000)
-      .attr("x", function(d) { return x(d.States); })
-      .attr("y", function(d) { return y(d.Population); })
-      .attr("width", x.bandwidth())
-      .attr("height", function(d) { return height - y(d.Population); })
-      .style("fill", color)
+    .attr("x", function(d) { return x(d.States); })
+    .attr("y", function(d) { return y(d.Population); })
+    .attr("width", x.bandwidth())
+    .attr("height", function(d) { return height - y(d.Population); })
+    .style("fill", color)
+    .attr("stroke", "grey")
+    .on("mouseover", mouseover)
+    .on("mousemove", mousemove)
+    .on("mouseleave", mouseleave);
 
 }
-
-// This function is called by the buttons on top of the plot
-function changeColor(color){
-    d3.selectAll("rect")
-      .transition()
-      .duration(2000)
-      .style("fill", color)
-  }
 
   updateBarData(data1,'#993300');
 
