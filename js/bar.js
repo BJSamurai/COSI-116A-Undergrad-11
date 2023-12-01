@@ -71,34 +71,40 @@ svg.append("g")
   .style("border-radius", "5px")
   .style("padding", "10px");
 
-  var mouseover = function(event, d) {
+  var mouseover = function(d) {
+    
+    var StateName = d.States;
+    var PopulationNum = d.Population;
     tooltip
         .style("opacity", 1)
-        .html("State: " + d.States + "<br>" + "Population: " + d.Population)
-        .style("left", (d3.pointer(event)[0] + 70) + "px")
-        .style("top", (d3.pointer(event)[1]) + "px");
+        .html("State: " + StateName + "<br>" + "Population: " + PopulationNum)
+        .style("left", (d3.mouse(this)[0] + 70) + "px")
+        .style("top", (d3.mouse(this)[1]) + "px");
 };
 
 // Revised mousemove function
-var mousemove = function(event) {
+var mousemove = function(d) {
     tooltip
-        .style("left", (d3.pointer(event)[0] + 90) + "px")
-        .style("top", (d3.pointer(event)[1]) + "px");
+        .style("left", (d3.mouse(this)[0] + 90) + "px")
+        .style("top", (d3.mouse(this)[1]) + "px");
 };
 
 // Revised mouseout function (if not already implemented)
-var mouseout = function(event, d) {
-    tooltip.style("opacity", 0);
-};
+var mouseleave = function(d) {
+  tooltip
+    .style("opacity", 0)
+}
 
 
   function updateBarData(data,color) {
     var u = svg.selectAll("rect")
       .data(data)
   
-    u
-      .enter()
+      u.enter()
       .append("rect")
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+      .on("mouseleave", mouseleave)
       .merge(u)
       .transition()
       .duration(1000)
@@ -109,11 +115,7 @@ var mouseout = function(event, d) {
       .delay(function(d,i){console.log(i) ; return(i*50)})
       .style("fill", color)
       .attr("stroke", "grey")
-      .on("mouseover", mouseover)
-      .on("mousemove", mousemove)
-      .on("mouseleave", mouseleave);
-
-      u.exit().remove();
+      .attr("stroke-width", "1.5px")
   }
 
   updateBarData(data1,'#993300');
