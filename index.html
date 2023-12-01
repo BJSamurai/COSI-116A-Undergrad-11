@@ -4,10 +4,12 @@
 <!-- Metadata -->
 <head>
   <meta charset="utf-8">
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Title -->
-  <title>Project Team #: Topic, COSI 116A F23</title>
+  <title>Assignment: Brushing &amp; Linking in D3</title>
   
   <!-- CSS Styling -->
   <link rel="stylesheet" href="style.css">
@@ -30,14 +32,19 @@
 
 <!-- Main page content -->
 <body>
-
+  
+  
+  <!-- Update this with your GitHub repo URL -->
+  <span id="forkongithub"><a href="https://github.com/COSI116A-Brandeis-InfoVis-Fall23/cosi-116a-fall23-assignment-4-brushing-and-linking-in-d3-BJSamurai.git">Fork me on GitHub</a></span>
+  
+  <!-- Writeup -->
   <!-- Update this with your GitHub repo URL -->
   <span id="forkongithub"><a href="https://github.com/cosi116a-brandeis-infovis-fall23/cosi116a_project_template">Fork me on GitHub</a></span>
 
   <!-- Your writeup goes here -->
   <div class = "content-column">
   
-    <h1>Project Team #: Topic, COSI 116A F23</h1>
+    <h1>Project Team Undergrad 11: Topic, COSI 116A F23</h1>
     
     <p><strong>Student One</strong>, <strong>Student Two</strong>, <strong>Student Three</strong></p>
     
@@ -57,8 +64,16 @@
     
   </div>
   
-  <!-- Your visualization here -->
+
+
+  <!-- Visualization goes here -->
   <div class="vis-holder">
+
+    
+    <div class="linechart-holder" id="linechart"></div>
+    <div class="scatterplot-holder" id="scatterplot"></div>
+
+
     <!-- Change viewbox to whatever you want, e.g. "0 0 1000 6000" This determines your aspect ratio and coordinate system -->    
     <!--us map -->
     <div id="details-box"></div>
@@ -142,20 +157,25 @@
    
     <!-- Don't delete the closing tag! -->
     </svg>
+
   </div>
+  <div class="table-holder" id="table"></div>
+    
+    <button class="button1" onclick="updateBarData(data1,'#993300')">Population by States</button>
+      <button class="button2" onclick="updateBarData(data2,'red')">Patient In Hospital by States</button>
+      <div id="tooltip"></div>
+      <div id="my_dataviz"></div>
+      
+    
   
-  <!-- Your writeup goes here -->
+  <!-- Further writeup -->
   <div class = "content-column">
 
     <h1>Demo Video</h1>
     
     <p><em>Embedded MP4 demo video using the HTML5 &lt;video&gt; tag. For example, this screen recording Prof. Cody Dunne made of Mike Bostock's flexible transitions in D3 slide:</em></p>
     
-    <video controls width="100%">
-      <source src="http://www.ccs.neu.edu/home/cody/courses/shared/d3-flexible-transitions.mp4" type="video/mp4">
-      <p>Your browser doesn't support HTML5 video. Here is
-       a <a href="http://www.ccs.neu.edu/home/cody/courses/shared/d3-flexible-transitions.mp4">link to the video</a> instead.</p>
-    </video>
+    
 
     <h1>Visualization explanation</h1>
     
@@ -198,14 +218,17 @@
     </ul>
     
   </div>
-  
+
   <!-- Scripts at the end avoid need for dealing with async, defer, or onload event handlers -->
   <script src="lib/d3.v4/d3.v4.js"></script>
+  <script src="js/scatterplot.js"></script>
+  <script src="js/linechart.js"></script>
+  <script src="js/table.js"></script>
+  <script src="js/bar.js"></script>
   <script src="js/visualization.js"></script>
-
 
   
 </body>
 
-
 </html>
+
