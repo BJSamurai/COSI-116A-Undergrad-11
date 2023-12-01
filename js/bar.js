@@ -45,7 +45,7 @@ var svg = d3.select("#my_dataviz")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
 var x = d3.scaleBand()
   .range([ 0, width ])
@@ -69,47 +69,52 @@ svg.append("g")
   .style("border", "solid")
   .style("border-width", "1px")
   .style("border-radius", "5px")
-  .style("padding", "10px")
+  .style("padding", "10px");
 
-  var mouseover = function(d) {
-    var subgroupName = d3.select(this.parentNode).datum().key;
-    var subgroupValue = d.data[subgroupName];
+  var mouseover = function(event, d) {
     tooltip
-        .html("subgroup: " + subgroupName + "<br>" + "Value: " + subgroupValue)
         .style("opacity", 1)
-  }
-  var mousemove = function(d) {
+        .html("State: " + d.States + "<br>" + "Population: " + d.Population)
+        .style("left", (d3.pointer(event)[0] + 70) + "px")
+        .style("top", (d3.pointer(event)[1]) + "px");
+};
+
+// Revised mousemove function
+var mousemove = function(event) {
     tooltip
-      .style("left", (d3.mouse(this)[0]+90) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
-      .style("top", (d3.mouse(this)[1]) + "px")
-  }
-  var mouseleave = function(d) {
-    tooltip
-      .style("opacity", 0)
-  }
+        .style("left", (d3.pointer(event)[0] + 90) + "px")
+        .style("top", (d3.pointer(event)[1]) + "px");
+};
+
+// Revised mouseout function (if not already implemented)
+var mouseout = function(event, d) {
+    tooltip.style("opacity", 0);
+};
 
 
-function updateBarData(data,color) {
-  var u = svg.selectAll("rect")
-    .data(data)
-
+  function updateBarData(data,color) {
+    var u = svg.selectAll("rect")
+      .data(data)
+  
     u
-    .enter()
-    .append("rect")
-    .merge(u)
-    .transition()
-    .duration(1000)
-    .attr("x", function(d) { return x(d.States); })
-    .attr("y", function(d) { return y(d.Population); })
-    .attr("width", x.bandwidth())
-    .attr("height", function(d) { return height - y(d.Population); })
-    .style("fill", color)
-    .attr("stroke", "grey")
-    .on("mouseover", mouseover)
-    .on("mousemove", mousemove)
-    .on("mouseleave", mouseleave);
+      .enter()
+      .append("rect")
+      .merge(u)
+      .transition()
+      .duration(1000)
+      .attr("x", function(d) { return x(d.States); })
+      .attr("y", function(d) { return y(d.Population); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d.Population); })
+      .delay(function(d,i){console.log(i) ; return(i*50)})
+      .style("fill", color)
+      .attr("stroke", "grey")
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+      .on("mouseleave", mouseleave);
 
-}
+      u.exit().remove();
+  }
 
   updateBarData(data1,'#993300');
 

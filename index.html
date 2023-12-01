@@ -25,6 +25,7 @@
 <!-- Main page content -->
 <body>
   
+  
   <!-- Update this with your GitHub repo URL -->
   <span id="forkongithub"><a href="https://github.com/COSI116A-Brandeis-InfoVis-Fall23/cosi-116a-fall23-assignment-4-brushing-and-linking-in-d3-BJSamurai.git">Fork me on GitHub</a></span>
   
@@ -62,12 +63,15 @@
     
     <div class="linechart-holder" id="linechart"></div>
     <div class="scatterplot-holder" id="scatterplot"></div>
+
   </div>
-    <div class="table-holder" id="table">
-      <button class="button1" onclick="updateBarData(data1,'#993300')">Population by States</button>
+  <div class="table-holder" id="table"></div>
+    
+    <button class="button1" onclick="updateBarData(data1,'#993300')">Population by States</button>
       <button class="button2" onclick="updateBarData(data2,'red')">Patient In Hospital by States</button>
+      <div id="tooltip"></div>
       <div id="my_dataviz"></div>
-    </div>
+      
     
   
   <!-- Further writeup -->
