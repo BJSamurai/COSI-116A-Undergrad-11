@@ -1,0 +1,17 @@
+[{"Country":"Germany","States":"Baden-Wurttemberg","Population":11148904,"PatientInHospital":1944609},
+{"Country":"Germany","States":"Bavaria","Population":13203592,"PatientInHospital":2659875},
+{"Country":"Germany","States":"Berlin","Population":3689708,"PatientInHospital":782560},
+{"Country":"Germany","States":"Brandenburg","Population":2546685,"PatientInHospital":474124},
+{"Country":"Germany","States":"Bremen","Population":663567,"PatientInHospital":167169},
+{"Country":"Germany","States":"Hamburg","Population":1904212,"PatientInHospital":455391},
+{"Country":"Germany","States":"Hesse","Population":6313614,"PatientInHospital":1244922},
+{"Country":"Germany","States":"LowerSaxony","Population":8045829,"PatientInHospital":1534867},
+{"Country":"Germany","States":"MeckPomm","Population":1605259,"PatientInHospital":370801},
+{"Country":"Germany","States":"NorthRhine-Westphalia","Population":17944923,"PatientInHospital":4116280}, 
+{"Country":"Germany","States":"Rhineland-Palatinate","Population":4126872,"PatientInHospital":834770},
+{"Country":"Germany","States":"Saarland","Population":1005796,"PatientInHospital":243602},
+{"Country":"Germany","States":"Saxony","Population":4036369,"PatientInHospital":854646},
+{"Country":"Germany","States":"Saxony-Anhalt","Population":2155742,"PatientInHospital":487914},
+{"Country":"Germany","States":"Schleswig-Holstein","Population":2936486,"PatientInHospital":529891},
+{"Country":"Germany","States":"Thuringia","Population":2099527,"PatientInHospital":502651}
+]
