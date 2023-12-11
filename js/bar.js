@@ -37,7 +37,8 @@ var data1 = [
 ];
 
 var dataus1 = [
-States:"
+{States:"Alabama",Population:134134134,PatientInHospital:141341213},
+{States:"Alaska",Population:1134134,PatientInHospital:14134}
 ]
 
 var margin = {top: 30, right: 30, bottom: 70, left: 60},
