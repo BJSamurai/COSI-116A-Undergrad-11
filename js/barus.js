@@ -1,4 +1,4 @@
-var data1= [
+var data3= [
     {States:"Alabama",Population:5024279},
     {States:"Alaska",Population:731158},
 	{States:"Arizona",Population:7378491},
@@ -50,9 +50,9 @@ var data1= [
 	{States:"Wisconsin",Population:5822434},
 	{States:"Wyoming",Population:578759}
     ];
-# https://www.ahd.com/state_statistics.html
+/* https://www.ahd.com/state_statistics.html */
 
-var data2= [
+var data4= [
     {States:"Alabama",Population:5024279,PatientInHospital:268332},
     {States:"Alaska",Population:731158,PatientInHospital:2840210},
 	{States:"Arizona",Population:7378491,PatientInHospital:2947182},
@@ -60,7 +60,7 @@ var data2= [
     {States:"California",Population:39512223,PatientInHospital:15165283},
     {States:"Colorado",Population:5758736,PatientInHospital:972907},
     {States:"Connecticut",Population:3565287,PatientInHospital:1815725},
-    {States:"Delaware",Population:973764,PatientInHospital:567,555},
+    {States:"Delaware",Population:973764,PatientInHospital:567555},
     {States:"Florida",Population:21477737,PatientInHospital:12807644},
     {States:"Georgia",Population:10617423,PatientInHospital:5158604},
     {States:"Hawaii",Population:1415872,PatientInHospital:540167}, 
@@ -118,14 +118,14 @@ var svg = d3.select("#my_dataviz")
 
 var x = d3.scaleBand()
   .range([ 0, width ])
-  .domain(data1.map(function(d) { return d.States; }))
+  .domain(data3.map(function(d) { return d.States; }))
   .padding(0.2);
 svg.append("g")
   .attr("transform", "translate(0," + height + ")")
   .call(d3.axisBottom(x))
 
 var y = d3.scaleLinear()
-  .domain([0, d3.max(data1, d => d.Population)])
+  .domain([0, d3.max(data3, d => d.Population)])
   .range([ height, 0]);
 svg.append("g")
   .call(d3.axisLeft(y));
@@ -187,7 +187,7 @@ var mouseleave = function(d) {
       .attr("stroke-width", "1.5px")
   }
 
-  updateBarData(data1,'#993300');
+  updateBarDataUS(data3,'#4287f5');
 
  //////////////////////////// 2nd Bar Chart ////////////////////////////
 

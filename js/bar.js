@@ -36,10 +36,6 @@ var data1 = [
 {States:"Thuringia",Population:2099527,PatientInHospital:502651}
 ];
 
-var dataus1 = [
-{States:"Alabama",Population:134134134,PatientInHospital:141341213},
-{States:"Alaska",Population:1134134,PatientInHospital:14134}
-]
 
 var margin = {top: 30, right: 30, bottom: 70, left: 60},
     width = 2000 - margin.left - margin.right,
