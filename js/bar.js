@@ -36,6 +36,10 @@ var data1 = [
 {States:"Thuringia",Population:2099527,PatientInHospital:502651}
 ];
 
+var dataus1 = [
+States:"
+]
+
 var margin = {top: 30, right: 30, bottom: 70, left: 60},
     width = 2000 - margin.left - margin.right,
     height = 1000 - margin.top - margin.bottom;
