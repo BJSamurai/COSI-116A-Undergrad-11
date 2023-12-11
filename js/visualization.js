@@ -141,3 +141,5 @@ window.onmousemove = function (e) {
   detailsBox.style.top = (y + 20) + 'px';
   detailsBox.style.left = (x) + 'px';
 };
+
+}))();
