@@ -55,8 +55,8 @@ var data3= [
 
 // data4's population is the number of patients in hospital
 var data4= [
-    {USStates:"Alabama",popHolder:5024279,Population:268332 , StateInitial:"AL"},
-    {USStates:"Alaska",popHolder:731158,Population:2840210 , StateInitial:"AK"},
+    {USStates:"Alabama",popHolder:5024279,Population:2840210 , StateInitial:"AL"},
+    {USStates:"Alaska",popHolder:731158,Population:268332 , StateInitial:"AK"},
 	{USStates:"Arizona",popHolder:7378491,Population:2947182 , StateInitial:"AZ"},
     {USStates:"Arkansas",popHolder:3024692,Population:1460895 , StateInitial:"AR"},
     {USStates:"California",popHolder:39512223,Population:15165283 , StateInitial:"CA"},
