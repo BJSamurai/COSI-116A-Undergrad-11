@@ -193,6 +193,7 @@ var mouseleave = function(d) {
       .merge(u)
       .transition()
       .duration(500)
+      
       .attr("y", function(d) { return y(d.Population); })
       .attr("height", function(d) { return height - y(d.Population); })
       .style("fill", color)
