@@ -26,14 +26,6 @@
     // Create a scatterplot given x and y attributes, labels, offsets; 
     // a dispatcher (d3-dispatch) for selection events; 
     // a div id selector to put our svg in; and the data to use.
-    // let spUnemployMurder = scatterplot()
-    //   .x(d => d.PatientInHospital)
-    //   .xLabel("Patients In Hospital")
-    //   .y(d => d.Population)
-    //   .yLabel("Population")
-    //   .yLabelOffset(150)
-    //   .selectionDispatcher(d3.dispatch(dispatchString))
-    //   ("#scatterplot", data);
 
     updateScatterPlot(1);
 
