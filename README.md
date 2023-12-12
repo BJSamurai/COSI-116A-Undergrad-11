@@ -4,7 +4,8 @@ This template will help you get started with your project. Please look through a
 
 ## The GitHub Pages Website
 
-Make sure you publish your project to github pages, and put the URL here: 
+Make sure you publish your project to github pages, and put the URL here:  
+https://github.com/BJSamurai/COSI-116A-Undergrad-11.git
 
 ### Github Pages
 
