@@ -41,7 +41,7 @@ var margin = {top: 30, right: 30, bottom: 70, left: 60},
     width = 2000 - margin.left - margin.right,
     height = 1000 - margin.top - margin.bottom;
 
-var svg = d3.select("#my_dataviz")
+var svg = d3.select("#bar")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -62,7 +62,7 @@ var y = d3.scaleLinear()
 svg.append("g")
   .call(d3.axisLeft(y));
 
-  var tooltip = d3.select("#my_dataviz")
+  var tooltip = d3.select("#bar")
   .append("div")
   .style("opacity", 0)
   .attr("class", "tooltip")
