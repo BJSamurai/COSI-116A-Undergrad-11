@@ -170,16 +170,16 @@ tr.mouseover.selected{
 
 
 
-	path {
+	/* path {
 		stroke: white;
 		fill:rgb(204, 129, 129) !important;
 	
 		transition: fill .4s ease;
 		transform-origin: center center;
 	}
-	
+	 */
 	path:hover {
-		fill: rgb(255, 0, 0) !important;
+		fill: rgb(38, 0, 255) !important;
 		cursor: pointer;
 		transform: scale(1.005, 1.005);
 	}
