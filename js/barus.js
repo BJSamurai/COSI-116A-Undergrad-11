@@ -1,3 +1,4 @@
+// data3's population is the total population of each state
 var data3= [
     {USStates:"Alabama",Population:5024279, StateInitial:"AL", popHolder:5024279},
     {USStates:"Alaska",Population:731158, StateInitial:"AK",popHolder:731158},
@@ -52,6 +53,7 @@ var data3= [
     ];
 /* https://www.ahd.com/state_statistics.html */
 
+// data4's population is the number of patients in hospital
 var data4= [
     {USStates:"Alabama",popHolder:5024279,Population:268332 , StateInitial:"AL"},
     {USStates:"Alaska",popHolder:731158,Population:2840210 , StateInitial:"AK"},
@@ -165,6 +167,7 @@ var mouseleave = function(d) {
 }
 
 
+//this function updates the bar graph when click the button
   function PartupdateBarDataUS(data,color) {
 
   y.domain([0, d3.max(data, d => d.popHolder)])
@@ -179,9 +182,7 @@ var mouseleave = function(d) {
       .merge(u)
       .transition()
       .duration(500)
-     // .attr("x", function(d) { return x(d.USStates); })
       .attr("y", function(d) { return y(d.Population); })
-     // .attr("width", x.bandwidth())
       .attr("height", function(d) { return height - y(d.Population); })
       
       .delay(function(d,i){console.log(i) ; return(i*20)})
@@ -190,8 +191,8 @@ var mouseleave = function(d) {
       .attr("stroke-width", "1.5px")
   }
 
+  //this function initializes the bar graph
   function updateBarDataUS(data,color) {
-
     let u = svgUS.selectAll("rect")
       .data(data)
   

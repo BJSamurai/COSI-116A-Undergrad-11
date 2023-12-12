@@ -1,3 +1,4 @@
+//data2's population is  patient in hospital
 var data2= [
     {States:"Baden-Wurttemberg",Population:1944609},
     {States:"Bavaria",Population:2659875},
@@ -17,6 +18,7 @@ var data2= [
     {States:"Thuringia",Population:502651}
     ];
 
+// data1's population is actual population
 var data1 = [
 {States:"Baden-Wurttemberg",Population:11148904,PatientInHospital:1944609},
 {States:"Bavaria",Population:13203592,PatientInHospital:2659875},
