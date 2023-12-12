@@ -106,7 +106,7 @@ var data4= [
     ];
 
 var margin = {top: 30, right: 30, bottom: 70, left: 60},
-    width = 2500 - margin.left - margin.right,
+    width = 2000 - margin.left - margin.right,
     height = 1000 - margin.top - margin.bottom;
 
 var svgUS = d3.select("#barUS")
@@ -130,10 +130,10 @@ var y = d3.scaleLinear()
   svgUS.append("g")
   .call(d3.axisLeft(y));
 
-  var tooltip = d3.select("#barUS")
+  var tooltipUS = d3.select("#barUS")
   .append("div")
   .style("opacity", 0)
-  .attr("class", "tooltip")
+  .attr("class", "tooltipUS")
   .style("background-color", "white")
   .style("border", "solid")
   .style("border-width", "1px")
@@ -142,9 +142,9 @@ var y = d3.scaleLinear()
 
   var mouseover = function(d) {
     
-    var StateName = d.USStates;
-    var PopulationNum = d.Population;
-    tooltip
+    let StateName = d.USStates;
+    let PopulationNum = d.Population;
+    tooltipUS
         .style("opacity", 1)
         .html("State: " + StateName + "<br>" + "Population: " + PopulationNum)
         .style("left", (d3.mouse(this)[0] + 70) + "px")
@@ -153,14 +153,14 @@ var y = d3.scaleLinear()
 
 // Revised mousemove function
 var mousemove = function(d) {
-    tooltip
+  tooltipUS
         .style("left", (d3.mouse(this)[0] + 90) + "px")
         .style("top", (d3.mouse(this)[1]) + "px");
 };
 
 // Revised mouseout function (if not already implemented)
 var mouseleave = function(d) {
-  tooltip
+  tooltipUS
     .style("opacity", 0)
 }
 
@@ -168,7 +168,7 @@ var mouseleave = function(d) {
   function PartupdateBarDataUS(data,color) {
 
   y.domain([0, d3.max(data, d => d.popHolder)])
-    var u = svgUS.selectAll("rect")
+    let u = svgUS.selectAll("rect")
       .data(data)
   
       u.enter()
@@ -192,7 +192,7 @@ var mouseleave = function(d) {
 
   function updateBarDataUS(data,color) {
 
-    var u = svgUS.selectAll("rect")
+    let u = svgUS.selectAll("rect")
       .data(data)
   
       u.enter()

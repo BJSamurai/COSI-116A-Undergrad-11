@@ -63,13 +63,18 @@ tr.selected {
 
 /* Pretty table layout */
 table {
-  font-size: 14px;
+  font-size: 15px;
   border-collapse: separate;
   /* vertical | horizontal */
   border-spacing: 0 0;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid black;
+  border-radius: 8px;
+  width: 25%;
+  height: 25%;
+  
 }
 
 th, td {
@@ -168,18 +173,39 @@ tr.mouseover.selected{
 		box-shadow:4px 4px 10px rgba(0,0,0,0.8);
 	}
 
+}
 
-
-	/* path {
+	/* Style for the map */
+	 .USmap path {
+		stroke: white;
+		fill:rgb(77, 83, 184) !important;
+	
+		transition: fill .4s ease;
+		transform-origin: center center;
+	}
+	
+	.DEmap path {
 		stroke: white;
 		fill:rgb(204, 129, 129) !important;
 	
 		transition: fill .4s ease;
 		transform-origin: center center;
 	}
-	 */
-	path:hover {
-		fill: rgb(38, 0, 255) !important;
+
+	.USmap path:hover {
+		fill: rgb(1, 7, 87) !important;
+		cursor: pointer;
+		transform: scale(1.005, 1.005);
+	}
+	
+	 #map-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+		
+	.DEmap path:hover {
+		fill: rgb(202, 35, 44) !important;
 		cursor: pointer;
 		transform: scale(1.005, 1.005);
 	}
@@ -190,15 +216,37 @@ tr.mouseover.selected{
 		align-items: center;
 	}
 	
-	/*#us-map {
-		display: block;
-		position: absolute;
- 		top: 200;
-		left: 0;
-		width:50%;
-		height: 50%;
-	}*/
-	
+	/* In order to put map and bar graph in a box, so they can display side by side */
+	.DE-holder {
+		width: 30%;
+		height: 30%;
+		display: flex;
+	  }
+
+	.DEbar {
+		flex: 1;
+	}
+
+	.DEmap {
+		flex: 0 0 50%;
+	}
+
+	.US-holder {
+		width: 30%;
+		height: 30%;
+		display: flex;
+	  }
+
+	.USbar {
+		flex: 1;
+	}
+
+	.USmap {
+		flex: 0 0 50%;
+		
+	}
+
+	/* Style for the tooltip for maps */
 	#details-box {
 		box-shadow: 0px 7px 40px rgba(0, 0, 0, 0.7);
 		opacity: 0%;
@@ -210,9 +258,9 @@ tr.mouseover.selected{
 		font-family: "Poppins";
 		background-color: black;
 		width: fit-content;
+		height: fit-content;
 		transform: translateX(-50%);
 		transition: opacity .4s ease;
 		z-index: 1;
 	} 
 
-}
