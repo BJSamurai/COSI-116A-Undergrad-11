@@ -107,6 +107,8 @@ var data4= [
 	{USStates:"Wyoming",popHolder:578759,Population:122100 , StateInitial:"WY"}
     ];
 
+let indicator = 1;
+
 var margin = {top: 30, right: 30, bottom: 70, left: 60},
     width = 2000 - margin.left - margin.right,
     height = 1000 - margin.top - margin.bottom;
@@ -146,11 +148,20 @@ var y = d3.scaleLinear()
     
     let StateName = d.USStates;
     let PopulationNum = d.Population;
-    tooltipUS
+    if (indicator == 1){
+      tooltipUS
+          .style("opacity", 1)
+          .html("State: " + StateName + "<br>" + "Population: " + PopulationNum)
+          .style("left", (d3.mouse(this)[0] + 70) + "px")
+          .style("top", (d3.mouse(this)[1]) + "px");
+      }
+      else if (indicator == 2){
+        tooltipUS
         .style("opacity", 1)
-        .html("State: " + StateName + "<br>" + "Population: " + PopulationNum)
-        .style("left", (d3.mouse(this)[0] + 70) + "px")
-        .style("top", (d3.mouse(this)[1]) + "px");
+          .html("State: " + StateName + "<br>" + "Patient in Hospital: " + PopulationNum)
+          .style("left", (d3.mouse(this)[0] + 70) + "px")
+          .style("top", (d3.mouse(this)[1]) + "px");
+      }
 };
 
 // Revised mousemove function
@@ -168,7 +179,7 @@ var mouseleave = function(d) {
 
 
 //this function updates the bar graph when click the button
-  function PartupdateBarDataUS(data,color) {
+  function PartupdateBarDataUS(data,color, i) {
 
   y.domain([0, d3.max(data, d => d.popHolder)])
     let u = svgUS.selectAll("rect")
@@ -184,11 +195,11 @@ var mouseleave = function(d) {
       .duration(500)
       .attr("y", function(d) { return y(d.Population); })
       .attr("height", function(d) { return height - y(d.Population); })
-      
-      .delay(function(d,i){console.log(i) ; return(i*20)})
       .style("fill", color)
       .attr("stroke", "grey")
       .attr("stroke-width", "1.5px")
+
+      indicator = i;
   }
 
   //this function initializes the bar graph
