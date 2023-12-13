@@ -47,13 +47,23 @@
     <p>Project-long Course Project as part of COSI 116A: Information Visualization</a>, taught by <a href="https://cs.brandeis.edu/~dylan/">Prof. Dylan Cashman</a>, <a href="https://cs.brandeis.edu/">Brandeis University</a>.</p>
     
     
-    <h1>Motivation</h1>
-    
-    <p><em>These visualizations are created to compare the difference in Medical Resources between the USA and Germany. It is dedicated to giving people the first impression of the difference, instead of thoroughly understanding.</em></p>
-    
+    <h1>Purpose</h1>
     
 
+    <p><em>When it comes to healthcare, the United States has been regarded for having one of the most inefficent systems. 
+      The U.S. spends a higher percentage of its GDP on healthcare but does not consistently achieve better health outcomes compared to countries with lower healthcare expenditures.
+      The United States healthcare system is characterized by a mix of private and public components, with many individuals obtaining coverage through employer-sponsored plans or private insurance. 
+      Public programs like Medicare and Medicaid provide coverage for specific demographic groups. </em></p>
+
+
     
+    <p><em>Germany has a social health insurance system known as the "Statutory Health Insurance" (Gesetzliche Krankenversicherung or GKV).
+      The system is characterized by mandatory health insurance for all residents, with contributions shared between employers and employees. 
+      Nearly 90% of all Germans are covered and it sets minimum coverage standards of which then users can choose their preferred provider with different private options for those of certain income groups. 
+      Individuals can also opt for private health insurance, which is more common among higher-income individuals.</em></p>
+      
+      <p><em>Our aim is to allow for the discovery of how these two systems differ with important data points. Certain things to notice are is there a direct correction between the population size and the number of hospital visits? 
+        With Germany, there are some outlyers, but not many. While in the US there are much more, inconsistenies in the data. This is represent a lot of other external factors that the US coverage may not cover. </em>
     <h1>Visualization</h1>
     
   </div>
@@ -222,27 +232,111 @@
   <div class = "content-column">
 
     <h1>Demo Video</h1>
-    
-    <p><em>Embedded MP4 demo video using the HTML5 &lt;video&gt; tag. For example, this screen recording Prof. Cody Dunne made of Mike Bostock's flexible transitions in D3 slide:</em></p>
-    
-    
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Video Demo</title>
+</head>
+<body>
+
+
+<video width="1600" height="900" controls>
+    <source src="Videos/DemoVideo.mp4" type="video/mp4">
+</video>
+
+</body>
+</html>
 
     <h1>Visualization explanation</h1>
     
     <p><em>Final visualization screenshots (PNG images), design justifications, UI walk-through, and linked presentation slides.</em></p>
 
+    <p><em>https://docs.google.com/presentation/d/1yDcd9tLT-bzuMF7Yv4b2y6msi7-_q-hcX7e3Dc_l6T4/edit?usp=sharing</em></p>
     <h1>Data Analysis</h1>
-    <p><em>Summary of data, data types, and data preprocessing.</em></p>
+    <p><em>In the initial trio of interconnected graphs, viewers are presented with a visual representation of Germany's healthcare dynamics. 
+      Clicking on individual states allows for a detailed comparison between total population figures and the corresponding number of patients in hospitals, offering insights into the distribution of healthcare services. 
+      Notably, the absence of substantial outliers indicates a relatively uniform pattern across states, suggesting a robust and evenly accessible healthcare infrastructure. 
+      This visualization provides a nuanced understanding of the nation's healthcare system, underscoring the overall health of the population and the effectiveness of healthcare coverage, with potential implications for policy considerations and resource allocation.</em></p>
 
-    <p><em>Expectation: Data sources match the problem statement and are appropriate. These descriptions should be very explicit so someone could read your page and properly reproduce your results.</em></p>
+      
+
+    <p><em>In the lower map and accompanying bar chart, a clear visual distinction emerges when switching between population and total hospitalizations.
+       In Germany, the ratio rate displays a relatively consistent pattern with fewer disparities, marked by noticeable spikes. 
+       Conversely, the U.S. demonstrates higher inconsistency, reflecting broader challenges in healthcare distribution. 
+       This variability is exemplified by instances where the number of hospitalized patients significantly deviates from the population size, emphasizing the complex interplay of factors influencing healthcare dynamics.</em></p>
 
     <h1>Task Analysis</h1>
 
-    <p><em>Summary of task table.</em></p>
+    <p><em>Map Graph Section:
 
-    <p><em>Expectation: Clearly describes domain tasks, processes, goals and abstract tasks for domain problems.</em></p>
+      Tasks: Map U.S. and German healthcare data, create an interactive map, and display a scatterplot.
+      
+      Processes: Aggregate and map data, implement mapping algorithms.
+      
+      Goals: Enable visual comparison and derive insights into regional healthcare trends.</em></p>
+      
+      <p><em>Bar Chart Section:
+      
+      Tasks: Visualize demographic data through separate bar charts for U.S. and German populations and hospitalized patients.
+      
+      Processes: Transform data, normalize for fair comparisons.
+      
+      Goals: Provide insights into population distribution and illustrate trends in hospitalized patients.</em></p>
+      
+      
+      <p><em>Brush/Link:
+      
+      Tasks: Allow data selection and create linked visualizations.
+      
+      Processes: Implement event handling and dynamic data filtering.
+      
+      Goals: Enhance user engagement and facilitate pattern recognition.</em></p>
+      
+      <p><em> Highlighting:
+      
+      Tasks: Allow data emphasis for specific points or regions.
+     
+      Processes: Modify rendering parameters and implement dynamic styling.
+     
+      Goals: Enable data focus and support anomaly detection.</em></p>
+      
+      <p><em>Filter:
+      
+      
+      Tasks: Allow data exclusion/inclusion and focus on relevant subsets.
+     
+      Processes: Implement filtering algorithms and ensure real-time updates.
+      
+      Goals: Empower users with customized views and support detailed data exploration.</em></p>
+      
+      <p><em>Dataset Changes for Graph:
+      
+      Tasks: Enable users to switch between datasets and integrate new datasets dynamically.
+      
+      Processes: Implement algorithms for seamless integration and perform compatibility checks.
+     
+      Goals: Provide data flexibility for exploration and facilitate comparative analysis.</em></p>
+
+  
 
     <h1>Design Process</h1>
+    <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedding PDF</title>
+</head>
+<body>
+
+<h2>Embedded PDF Example</h2>
+
+<source src="images/StaticScreenshot.pdf" type="pdf">
+    <p>This browser does not support PDFs. Please download the PDF to view it: <a href="example.pdf">Download PDF</a>.</p>
+</object>
+
+</body>
+</html>
     
     <p><em>Sketches and design choices to justify final visualization.</em></p>
 
@@ -253,9 +347,19 @@
 
     <h1>Conclusion</h1>
 
-    <p><em>Short summary of work completed and areas for improvement/future-work.</em></p>
+    <p><em>Map Graph Section - Done</em></p>
+    <p><em>The U.S. and German map graph - Done</em></p>
+    <p><em>Timeline (used by map graph) - Not Added</em></p>
+    <p><em>A Chart showing all the data - Done</em></p>
+    <p><em>A scatterplot (showing the same data as the map graph) - Done</em></p>
+
+      Upon closer inspection, we successfully integrated nearly all the components we had anticipated, with the exception of the timeline. 
+      We concluded that achieving the desired timeline was not feasible and wouldn't effectively illustrate our point. 
+      We have completed the current phase, and future enhancements may involve incorporating additional data on various types of hospitalization to facilitate user discovery.
+      </em></p>
     
-    <p><em>Expectation: Meaningfully wraps up project and has good future directions.</em></p>
+    <p><em>
+      By harnessing an extensive dataset pertaining to our subjects, our aim is to facilitate an open-ended exploration into the healthcare systems of the two countries. Looking forward, we aspire to integrate more intriguing data, providing viewers with additional avenues to derive conclusive insights and a deeper understanding of the healthcare landscapes in question.</em></p>
 
     
     <h1>Acknowledgments</h1>
