@@ -49,10 +49,13 @@
     
     <h1>Purpose</h1>
     
+
     <p><em>When it comes to healthcare, the United States has been regarded for having one of the most inefficent systems. 
       The U.S. spends a higher percentage of its GDP on healthcare but does not consistently achieve better health outcomes compared to countries with lower healthcare expenditures.
       The United States healthcare system is characterized by a mix of private and public components, with many individuals obtaining coverage through employer-sponsored plans or private insurance. 
       Public programs like Medicare and Medicaid provide coverage for specific demographic groups. </em></p>
+
+
     
     <p><em>Germany has a social health insurance system known as the "Statutory Health Insurance" (Gesetzliche Krankenversicherung or GKV).
       The system is characterized by mandatory health insurance for all residents, with contributions shared between employers and employees. 
@@ -79,8 +82,8 @@
     <!--These map was based on inClass Assignment: map with D3, with tooltip inserted-->
   
     <!--US bar buttons-->
-    <button class="button3" onclick="PartupdateBarDataUS(data3,'#4287f5')">Population by States (US)</button>
-    <button class="button4" onclick="PartupdateBarDataUS(data4,'#4245f5')">Patients in Hospital by States (US)</button>
+    <button class="button3" onclick="PartupdateBarDataUS(data3,'#4287f5',1)">Population by States (US)</button>
+    <button class="button4" onclick="PartupdateBarDataUS(data4,'#0306a8',2)">Patients in Hospital by States (US)</button>
     <div class="US-holder">
       <!--US map -->
       <div class = "box" id="details-box"></div>
@@ -166,8 +169,8 @@
   </div>
 
     <!--Germany bar buttons-->
-    <button class="button1" onclick="updateBarData(data1,'#bf5858')">Population by States (DE)</button>
-    <button class="button2" onclick="updateBarData(data2,'red')">Patients In Hospital by States (DE)</button>
+    <button class="button1" onclick="PartupdateBarData(data1,'#bf5858',1)">Population by States (DE)</button>
+    <button class="button2" onclick="PartupdateBarData(data2,'red',2)">Patients In Hospital by States (DE)</button>
 
   <div class="DE-holder">
   <!--Germany map -->
