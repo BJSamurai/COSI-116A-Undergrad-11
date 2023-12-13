@@ -49,9 +49,9 @@
     
     <h1>Motivation</h1>
     
-    <p><em>Summary of user needs and motivating questions.</em></p>
+    <p><em>These visualizations are created to compare the difference in Medical Resources between the USA and Germany. It is dedicated to giving people the first impression of the difference, instead of thoroughly understanding.</em></p>
     
-    <p><em>Expectation: There is a clear focus, and a developed explanation of the problem, and a reasonable response is proposed.</em></p>
+    
 
     
     <h1>Visualization</h1>
@@ -72,8 +72,8 @@
     <!--These map was based on inClass Assignment: map with D3, with tooltip inserted-->
   
     <!--US bar buttons-->
-    <button class="button3" onclick="PartupdateBarDataUS(data3,'#4287f5')">Population by States (US)</button>
-    <button class="button4" onclick="PartupdateBarDataUS(data4,'#4245f5')">Patients in Hospital by States (US)</button>
+    <button class="button3" onclick="PartupdateBarDataUS(data3,'#4287f5',1)">Population by States (US)</button>
+    <button class="button4" onclick="PartupdateBarDataUS(data4,'#0306a8',2)">Patients in Hospital by States (US)</button>
     <div class="US-holder">
       <!--US map -->
       <div class = "box" id="details-box"></div>
@@ -159,8 +159,8 @@
   </div>
 
     <!--Germany bar buttons-->
-    <button class="button1" onclick="updateBarData(data1,'#bf5858')">Population by States (DE)</button>
-    <button class="button2" onclick="updateBarData(data2,'red')">Patients In Hospital by States (DE)</button>
+    <button class="button1" onclick="PartupdateBarData(data1,'#bf5858',1)">Population by States (DE)</button>
+    <button class="button2" onclick="PartupdateBarData(data2,'red',2)">Patients In Hospital by States (DE)</button>
 
   <div class="DE-holder">
   <!--Germany map -->
